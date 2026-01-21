@@ -29,6 +29,7 @@ html{
     height:400px;
     min-height: fit-content;
     width: min(90dvw, 300px);
+    min-width: fit-content;
     border-radius: 30px;
     border: 1px solid rgb(70, 70, 70);
 }
@@ -99,6 +100,8 @@ html{
     display:block;
     margin-top: 10px;
     margin-bottom: 2px;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 #country-name-display{
     font-weight: 500;
@@ -116,9 +119,14 @@ html{
     height:80px;
     width: 80px;
     display:inline-block;
-    margin-left: 110px;
-    margin-top: 7px;
-    margin-top: 10px;;
+}
+.weather-icon-container{
+    margin-top: 10px;
+    margin-bottom: 4px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:80px;
 }
 #current-status{
     font-weight: 600;

@@ -25,12 +25,12 @@ async function Search(){
     console.log("Searching region - "+searchBoxE.value);
     const locationData=await locationAPICall(searchBoxE.value.trim().toLowerCase());
     if(locationData===null){
-        popup(["Place was not found, please try nearby places or there is an API error.",null]);
+        alert("Place was not found, please try nearby places or there is an API error.");
         return ["Place was not found, please try nearby places or there is an API error.",null];
     }
     const weatherData=await weatherAPICall(lat=locationData.lat,lon=locationData.lon);
     if(weatherData===null){
-        popup(["Place was not found, please try nearby places or there is an API error.",null])
+        alert("Place was not found, please try nearby places or there is an API error.");
         return ["Weather data is not available for the location or there is an API error.",null];
     }
     updateDisplay(locationData,weatherData);
@@ -147,6 +147,7 @@ async function weatherAPICall(lat,lon,){
         temp:Math.round(data.main.temp),
         weatherStatus:data.weather[0].main,
         checkDayNight:checkDayNight,
+        weatherIcon:data.weather[0].icon,
     };
     console.log(weatherData);
     return weatherData;
@@ -164,6 +165,5 @@ function updateDisplay(locData,wethData){
     currentTempE.textContent=wethData.temp+"°";
     unitE.textContent="C";
     currentTempE.style.marginLeft="1rem";
+    weatherIconE.src=`assets/${wethData.weatherIcon}.png`;
 }
-
-function popup(){};
