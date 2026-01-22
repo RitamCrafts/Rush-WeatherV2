@@ -34,8 +34,8 @@ A simple weather application using **OpenWeatherMap APIs** to fetch location and
 
 
 ## ▶️ Run
-npm install
-npm run dev
+1. npm install
+2. npm run dev
 
 ---
 
