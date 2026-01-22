@@ -12,7 +12,7 @@ const currentStatusE = document.getElementById("current-status");
 const currentTempE = document.getElementById("current-temp");
 const unitE = document.getElementById("unit");
 //-----------------------OTHER VARIABLES/CONSTS-----------------------------
-const openWeather_apiKey = import.meta.env.OPENWEATHER_APIKEY; //yes at the time making it , I know that this is unsafe, but idk how to hide it in env yet also I will just replace it if necessary as of now
+const openWeather_apiKey = import.meta.env.OPENWEATHER_APIKEY;
 
 searchButtonE.addEventListener("click", Search);
 searchBoxE.addEventListener("keypress", (e) => {
