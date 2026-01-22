@@ -7,10 +7,9 @@ body {
   margin: 0;
   height: 100svh;
   background-color: rgb(17, 17, 17);
-  background-image: url("../public/assets/background.jpeg");
+  background-image: url("../public/assets/fallback-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(6px);
   overflow: visible;
 }
 html {
@@ -20,12 +19,21 @@ html {
   position: relative;
   height: 100svh;
 }
+.background-vid{
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .main-card-container {
+  backdrop-filter: blur(8px);
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(29, 30, 39, 0.802);
+  background-color: rgba(35, 39, 29, 0.682);
   height: 420px;
   min-height: fit-content;
   width: min(90dvw, 300px);
@@ -45,7 +53,7 @@ html {
   height: 2.4rem;
   outline: none;
   color: white;
-  background-color: rgba(68, 66, 78, 0.662);
+  background-color: rgba(22, 55, 40, 0.581);
   border: none;
   border-radius: 2.4rem;
   padding-left: 1rem;
@@ -66,8 +74,8 @@ html {
   border: none;
   background-image: linear-gradient(
     120deg,
-    rgb(126, 194, 239),
-    rgb(140, 136, 243)
+    rgb(184, 239, 126),
+    rgb(136, 243, 234)
   );
   display: flex;
   justify-content: center;
@@ -95,6 +103,7 @@ html {
     rgba(214, 214, 214, 0.5),
     transparent
   );
+  transform: scaleY(0.4);
 }
 .full-divider {
   height: 1px;
@@ -115,7 +124,7 @@ html {
 #country-name-display {
   font-weight: 500;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 #location-display {
   margin-top: 6px;
