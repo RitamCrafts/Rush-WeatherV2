@@ -99,6 +99,7 @@ async function weatherAPICall(lat, lon) {
       temp: Math.round(data.main.temp),
       weatherStatus: data.weather[0].main,
       checkDayNight: checkDayNight,
+      weatherIcon:data.weather[0].icon,
     };
     console.log(weatherData);
     return weatherData;
@@ -117,4 +118,7 @@ function updateDisplay(locData, wethData) {
   locationDisplayE.textContent = `Lat:${lat}° ${ns} | Lon:${lon}° ${ew}`;
   currentStatusE.textContent = wethData.weatherStatus;
   currentTempE.textContent = wethData.temp + "°";
+  unitE.textContent="C";
+  currentTempE.style.marginLeft="1rem";
+  weatherIconE.src=`/assets/${wethData.weatherIcon}.png`;
 }
