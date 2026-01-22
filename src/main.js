@@ -1,6 +1,6 @@
 console.log("JS active!");
-import { popup } from "./utils/ErrorHandle.js";
-import { countryMap } from "./assets/countrymap.js";
+import { popup } from "../utils/ErrorHandle.js";
+import { countryMap } from "../assets/countrymap.js";
 //TIME TO GET ALL ID
 const searchBoxE = document.getElementById("search-box");
 const searchButtonE = document.getElementById("search-button");
@@ -12,7 +12,7 @@ const currentStatusE = document.getElementById("current-status");
 const currentTempE = document.getElementById("current-temp");
 const unitE = document.getElementById("unit");
 //-----------------------OTHER VARIABLES/CONSTS-----------------------------
-const openWeather_apiKey = import.meta.env.OPENWEATHER_APIKEY;
+const openWeather_apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 searchButtonE.addEventListener("click", Search);
 searchBoxE.addEventListener("keypress", (e) => {
