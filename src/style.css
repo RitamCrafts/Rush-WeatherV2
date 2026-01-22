@@ -38,7 +38,7 @@ html {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(35, 39, 29, 0.682);
-  height: 420px;
+  height: 425px;
   min-height: fit-content;
   width: min(90dvw, 300px);
   min-width: fit-content;
