@@ -30,6 +30,7 @@ html {
   filter: blur(0.5px);
   transform: translateZ(0);
   will-change: transform;
+  display:none; /*too laggy*/
 }
 .main-card-container {
   backdrop-filter: blur(8px);
