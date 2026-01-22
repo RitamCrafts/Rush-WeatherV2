@@ -182,3 +182,13 @@ html {
     overflow-y: scroll;
   }
 }
+
+@media (width<800px){
+  .background-vid{
+    /* performance from AI */
+    filter: blur(1.5px);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+}
