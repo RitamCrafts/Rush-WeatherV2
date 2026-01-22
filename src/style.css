@@ -26,7 +26,7 @@ html {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(29, 30, 39, 0.802);
-  height: 400px;
+  height: 420px;
   min-height: fit-content;
   width: min(90dvw, 300px);
   min-width: fit-content;
