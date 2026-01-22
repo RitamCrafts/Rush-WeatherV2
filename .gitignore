@@ -9,7 +9,6 @@ node_modules
 /build
 /out
 /docs/api
-/public
 .next
 .nuxt
 .cache

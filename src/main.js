@@ -1,6 +1,6 @@
 console.log("JS active!");
 import { popup } from "../utils/ErrorHandle.js";
-import { countryMap } from "../assets/countrymap.js";
+import { countryMap } from "../public/assets/countrymap.js";
 //TIME TO GET ALL ID
 const searchBoxE = document.getElementById("search-box");
 const searchButtonE = document.getElementById("search-button");
@@ -99,7 +99,7 @@ async function weatherAPICall(lat, lon) {
       temp: Math.round(data.main.temp),
       weatherStatus: data.weather[0].main,
       checkDayNight: checkDayNight,
-      weatherIcon:data.weather[0].icon,
+      weatherIcon: data.weather[0].icon,
     };
     console.log(weatherData);
     return weatherData;
@@ -118,7 +118,7 @@ function updateDisplay(locData, wethData) {
   locationDisplayE.textContent = `Lat:${lat}° ${ns} | Lon:${lon}° ${ew}`;
   currentStatusE.textContent = wethData.weatherStatus;
   currentTempE.textContent = wethData.temp + "°";
-  unitE.textContent="C";
-  currentTempE.style.marginLeft="1rem";
-  weatherIconE.src=`/assets/${wethData.weatherIcon}.png`;
+  unitE.textContent = "C";
+  currentTempE.style.marginLeft = "1rem";
+  weatherIconE.src = `../public/assets/${wethData.weatherIcon}.png`;
 }
