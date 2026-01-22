@@ -12,12 +12,13 @@ const currentStatusE = document.getElementById("current-status");
 const currentTempE = document.getElementById("current-temp");
 const unitE = document.getElementById("unit");
 //-----------------------OTHER VARIABLES/CONSTS-----------------------------
+let openWeather_apiKey="X";
 try{
-  const openWeather_apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+  openWeather_apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 }catch(error){
   popup("API KEY FETCH ERROR");
 }
-if (!openWeather_apiKey) {
+if (openWeather_apiKey==="X") {
     popup("API KEY NOT FOUND");
 }
 
