@@ -12,7 +12,11 @@ const currentStatusE = document.getElementById("current-status");
 const currentTempE = document.getElementById("current-temp");
 const unitE = document.getElementById("unit");
 //-----------------------OTHER VARIABLES/CONSTS-----------------------------
+
 const openWeather_apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+if (!openWeather_apiKey) {
+    popup("API KEY NOT FOUND");
+}
 
 searchButtonE.addEventListener("click", Search);
 searchBoxE.addEventListener("keypress", (e) => {
@@ -28,23 +32,21 @@ async function Search() {
       searchBoxE.value.trim().toLowerCase(),
     );
     if (locationData === null) {
-      popup("Place not found, try nearby location");
+      return null;
     }
     const weatherData = await weatherAPICall(
       locationData.lat,
       locationData.lon,
     );
     if (weatherData === null) {
-      popup(
-        "Place was not found, please try nearby places or there is an API error.",
-      );
-      // return;
+      return null;
     }
     updateDisplay(locationData, weatherData);
     return 0;
   } catch (error) {
     console.log(error);
     popup(error.message || "Something went wrong");
+    return null;
   }
 }
 
@@ -55,9 +57,8 @@ async function locationAPICall(cityName) {
     );
     let data = await res.json();
     if (!data[0]) {
-      const locationData = { locFound: false };
       console.log("LocationAPI data not Recieved");
-      throw new Error("LocationAPI data not Recieved");
+      throw new Error("LocationAPI data not Recieved, try nearby locations.");
     }
 
     //country map generated from AI
@@ -74,6 +75,7 @@ async function locationAPICall(cityName) {
     return locationData;
   } catch (error) {
     popup(error.message || "Something went wrong");
+    return null;
   }
 }
 
@@ -87,7 +89,7 @@ async function weatherAPICall(lat, lon) {
     console.log(data);
     if (data.length === 0) {
       console.log("WeatherAPI data not Recieved");
-      return null;
+      throw new Error("WeatherAPI data not Recieved");
     }
     let checkDayNight = "day";
     if (data.weather[0].icon.endsWith("n")) {
@@ -105,6 +107,7 @@ async function weatherAPICall(lat, lon) {
     return weatherData;
   } catch (error) {
     popup(error.message || "Something went wrong");
+    return null;
   }
 }
 
@@ -120,5 +123,5 @@ function updateDisplay(locData, wethData) {
   currentTempE.textContent = wethData.temp + "°";
   unitE.textContent = "C";
   currentTempE.style.marginLeft = "1rem";
-  weatherIconE.src = `../public/assets/${wethData.weatherIcon}.png`;
+  weatherIconE.src = `/assets/${wethData.weatherIcon}.png`;
 }
